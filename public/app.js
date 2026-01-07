@@ -16,18 +16,19 @@ brandForm.addEventListener('submit', async (e) => {
 
     const brand = document.getElementById('brand').value.trim();
     const url = document.getElementById('url').value.trim();
+    const niche = document.getElementById('niche').value.trim();
     const country = document.getElementById('country').value.trim();
 
-    if (!brand || !url || !country) {
+    if (!brand || !url || !niche || !country) {
         showError('Por favor, completa todos los campos');
         return;
     }
 
-    await checkBrand(brand, url, country);
+    await checkBrand(brand, url, niche, country);
 });
 
 // Función principal para verificar la marca
-async function checkBrand(brand, url, country) {
+async function checkBrand(brand, url, niche, country) {
     // Limpiar estados previos
     hideError();
     hideResults();
@@ -39,7 +40,7 @@ async function checkBrand(brand, url, country) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ brand, url, country })
+            body: JSON.stringify({ brand, url, niche, country })
         });
 
         if (!response.ok) {

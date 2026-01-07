@@ -86,19 +86,17 @@ const checkBrandMention = (response, brand) => {
 /**
  * Función principal que ejecuta los 5 prompts y verifica la marca
  */
-const checkBrandInChatGPT = async (brand, url, country) => {
+const checkBrandInChatGPT = async (brand, url, niche, country) => {
   console.log(`🔍 Iniciando verificación de marca: ${brand}`);
   console.log(`🌐 URL: ${url}`);
+  console.log(`🎯 Nicho especificado: ${niche}`);
   console.log(`🌍 País: ${country}`);
 
-  // Paso 1: Identificar el nicho de la marca
-  const niche = await identifyNiche(brand, url);
-
-  // Paso 2: Generar prompts genéricos basados en el nicho y país
+  // Generar prompts genéricos basados en el nicho y país proporcionados
   const prompts = generateNichePrompts(niche, country);
   const results = [];
 
-  console.log(`\n🎯 Ejecutando prompts sobre el nicho: "${niche}" en ${country}\n`);
+  console.log(`\n🚀 Ejecutando prompts sobre "${niche}" en ${country}\n`);
 
   // Paso 3: Ejecutar los prompts y verificar si la marca aparece
   for (const promptData of prompts) {
@@ -151,9 +149,8 @@ const checkBrandInChatGPT = async (brand, url, country) => {
 
   console.log(`\n✨ Verificación completada`);
 
-  // Retornar resultados con información del nicho
+  // Retornar resultados
   return {
-    niche: niche,
     results: results
   };
 };

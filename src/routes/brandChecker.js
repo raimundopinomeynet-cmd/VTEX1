@@ -5,24 +5,24 @@ const { checkBrandInChatGPT } = require('../services/openaiService');
 // Endpoint para verificar una marca en ChatGPT
 router.post('/check-brand', async (req, res) => {
   try {
-    const { brand, url, country } = req.body;
+    const { brand, url, niche, country } = req.body;
 
     // Validación de entrada
-    if (!brand || !url || !country) {
+    if (!brand || !url || !niche || !country) {
       return res.status(400).json({
-        error: 'Se requieren los campos "brand", "url" y "country"'
+        error: 'Se requieren los campos "brand", "url", "niche" y "country"'
       });
     }
 
     // Ejecutar las verificaciones
-    const data = await checkBrandInChatGPT(brand, url, country);
+    const data = await checkBrandInChatGPT(brand, url, niche, country);
 
     res.json({
       success: true,
       brand,
       url,
+      niche: niche,
       country,
-      niche: data.niche,
       results: data.results,
       summary: {
         totalPrompts: data.results.length,

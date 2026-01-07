@@ -38,6 +38,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="niche">Nicho / Categoría del Servicio</label>
+                    <input
+                        type="text"
+                        id="niche"
+                        name="niche"
+                        placeholder="Ej: gestión de envíos, ropa deportiva, software CRM..."
+                        required
+                    >
+                    <small class="form-help">Define en qué nicho quieres verificar tu marca</small>
+                </div>
+
+                <div class="form-group">
                     <label for="country">País / Región</label>
                     <input
                         type="text"
@@ -58,8 +70,8 @@
         <!-- Loading State -->
         <div id="loadingState" class="loading-state hidden">
             <div class="spinner"></div>
-            <p>Analizando el nicho y consultando a ChatGPT...</p>
-            <p class="loading-info">Este proceso puede tomar 15-20 segundos</p>
+            <p>Consultando a ChatGPT sobre tu nicho...</p>
+            <p class="loading-info">Este proceso puede tomar 10-15 segundos</p>
         </div>
 
         <!-- Results Section -->
@@ -69,9 +81,9 @@
             <div class="summary-card">
                 <h3>Resumen</h3>
                 <div class="niche-info">
-                    <p><strong>🎯 Nicho detectado:</strong> <span id="nicheDetected">-</span></p>
+                    <p><strong>🎯 Nicho:</strong> <span id="nicheDetected">-</span></p>
                     <p><strong>🌍 País/Región:</strong> <span id="countryDetected">-</span></p>
-                    <p class="niche-description">Analizamos si tu marca aparece cuando se pregunta sobre este nicho en este país</p>
+                    <p class="niche-description">Verificamos si tu marca aparece cuando se busca en este nicho y país</p>
                 </div>
                 <div class="summary-stats">
                     <div class="stat">
