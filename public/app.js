@@ -16,17 +16,18 @@ brandForm.addEventListener('submit', async (e) => {
 
     const brand = document.getElementById('brand').value.trim();
     const url = document.getElementById('url').value.trim();
+    const country = document.getElementById('country').value.trim();
 
-    if (!brand || !url) {
+    if (!brand || !url || !country) {
         showError('Por favor, completa todos los campos');
         return;
     }
 
-    await checkBrand(brand, url);
+    await checkBrand(brand, url, country);
 });
 
 // Función principal para verificar la marca
-async function checkBrand(brand, url) {
+async function checkBrand(brand, url, country) {
     // Limpiar estados previos
     hideError();
     hideResults();
@@ -38,7 +39,7 @@ async function checkBrand(brand, url) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ brand, url })
+            body: JSON.stringify({ brand, url, country })
         });
 
         if (!response.ok) {
@@ -91,6 +92,12 @@ function displayResults(data) {
     const nicheElement = document.getElementById('nicheDetected');
     if (nicheElement && data.niche) {
         nicheElement.textContent = data.niche;
+    }
+
+    // Actualizar información de país
+    const countryElement = document.getElementById('countryDetected');
+    if (countryElement && data.country) {
+        countryElement.textContent = data.country;
     }
 
     // Actualizar resumen

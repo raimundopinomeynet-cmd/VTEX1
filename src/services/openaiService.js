@@ -44,32 +44,32 @@ Nicho/Servicio:`
  * Genera 5 prompts genéricos basados en el nicho identificado
  * para ver si la marca aparece naturalmente en las recomendaciones
  */
-const generateNichePrompts = (niche, brand) => {
+const generateNichePrompts = (niche, country) => {
   return [
     {
       id: 1,
       name: 'Mejores Empresas del Nicho',
-      prompt: `¿Cuáles son las mejores empresas de ${niche}? Dame un top 5.`
+      prompt: `¿Cuáles son las mejores empresas de ${niche} en ${country}? Dame un top 5.`
     },
     {
       id: 2,
       name: 'Recomendación de Servicios',
-      prompt: `Necesito contratar servicios de ${niche}. ¿Qué empresas me recomiendas?`
+      prompt: `Necesito contratar servicios de ${niche} en ${country}. ¿Qué empresas me recomiendas?`
     },
     {
       id: 3,
       name: 'Búsqueda Genérica',
-      prompt: `¿Qué empresas ofrecen ${niche}?`
+      prompt: `¿Qué empresas de ${country} ofrecen ${niche}?`
     },
     {
       id: 4,
       name: 'Comparación de Mercado',
-      prompt: `Compara las principales empresas de ${niche}. ¿Cuál es la mejor opción?`
+      prompt: `Compara las principales empresas de ${niche} en ${country}. ¿Cuál es la mejor opción?`
     },
     {
       id: 5,
       name: 'Líderes del Sector',
-      prompt: `¿Quiénes son los líderes en ${niche}? Dame nombres de empresas reconocidas.`
+      prompt: `¿Quiénes son los líderes en ${niche} en ${country}? Dame nombres de empresas reconocidas.`
     }
   ];
 };
@@ -86,18 +86,19 @@ const checkBrandMention = (response, brand) => {
 /**
  * Función principal que ejecuta los 5 prompts y verifica la marca
  */
-const checkBrandInChatGPT = async (brand, url) => {
+const checkBrandInChatGPT = async (brand, url, country) => {
   console.log(`🔍 Iniciando verificación de marca: ${brand}`);
   console.log(`🌐 URL: ${url}`);
+  console.log(`🌍 País: ${country}`);
 
   // Paso 1: Identificar el nicho de la marca
   const niche = await identifyNiche(brand, url);
 
-  // Paso 2: Generar prompts genéricos basados en el nicho
-  const prompts = generateNichePrompts(niche, brand);
+  // Paso 2: Generar prompts genéricos basados en el nicho y país
+  const prompts = generateNichePrompts(niche, country);
   const results = [];
 
-  console.log(`\n🎯 Ejecutando prompts sobre el nicho: "${niche}"\n`);
+  console.log(`\n🎯 Ejecutando prompts sobre el nicho: "${niche}" en ${country}\n`);
 
   // Paso 3: Ejecutar los prompts y verificar si la marca aparece
   for (const promptData of prompts) {

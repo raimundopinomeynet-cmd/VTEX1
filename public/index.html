@@ -37,6 +37,18 @@
                     >
                 </div>
 
+                <div class="form-group">
+                    <label for="country">País / Región</label>
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        placeholder="Ej: Chile, México, España, USA..."
+                        required
+                    >
+                    <small class="form-help">Las recomendaciones pueden variar según el país</small>
+                </div>
+
                 <button type="submit" class="btn-primary" id="submitBtn">
                     Verificar Marca
                 </button>
@@ -58,7 +70,8 @@
                 <h3>Resumen</h3>
                 <div class="niche-info">
                     <p><strong>🎯 Nicho detectado:</strong> <span id="nicheDetected">-</span></p>
-                    <p class="niche-description">Analizamos si tu marca aparece cuando se pregunta sobre este nicho</p>
+                    <p><strong>🌍 País/Región:</strong> <span id="countryDetected">-</span></p>
+                    <p class="niche-description">Analizamos si tu marca aparece cuando se pregunta sobre este nicho en este país</p>
                 </div>
                 <div class="summary-stats">
                     <div class="stat">
