@@ -6,35 +6,70 @@ const openai = new OpenAI({
 });
 
 /**
- * 5 prompts diseñados para verificar la aparición de una marca
- * en diferentes contextos de búsqueda y recomendación
+ * Identifica el nicho/servicio de una marca basándose en su URL y nombre
  */
-const generatePrompts = (brand, url) => {
+const identifyNiche = async (brand, url) => {
+  console.log(`🔎 Analizando nicho de la marca ${brand}...`);
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'user',
+          content: `Analiza la marca "${brand}" con URL "${url}".
+
+Responde ÚNICAMENTE con el nicho o servicio principal que ofrece esta empresa, en 2-4 palabras.
+Ejemplos de respuesta: "gestión de envíos", "ropa deportiva", "streaming de video", "seguros de auto", "software CRM"
+
+Nicho/Servicio:`
+        }
+      ],
+      temperature: 0.3,
+      max_tokens: 50
+    });
+
+    const niche = completion.choices[0].message.content.trim();
+    console.log(`✅ Nicho identificado: "${niche}"`);
+    return niche;
+
+  } catch (error) {
+    console.error('❌ Error al identificar nicho:', error.message);
+    // Fallback: usar una descripción genérica
+    return 'servicios en línea';
+  }
+};
+
+/**
+ * Genera 5 prompts genéricos basados en el nicho identificado
+ * para ver si la marca aparece naturalmente en las recomendaciones
+ */
+const generateNichePrompts = (niche, brand) => {
   return [
     {
       id: 1,
-      name: 'Recomendación Directa',
-      prompt: `¿Cuáles son las mejores opciones para ${brand}? Dame 3 recomendaciones.`
+      name: 'Mejores Empresas del Nicho',
+      prompt: `¿Cuáles son las mejores empresas de ${niche}? Dame un top 5.`
     },
     {
       id: 2,
-      name: 'Búsqueda de Alternativas',
-      prompt: `Necesito encontrar empresas o servicios similares a ${brand}. ¿Qué me recomiendas?`
+      name: 'Recomendación de Servicios',
+      prompt: `Necesito contratar servicios de ${niche}. ¿Qué empresas me recomiendas?`
     },
     {
       id: 3,
-      name: 'Consulta de Información',
-      prompt: `¿Qué puedes decirme sobre ${brand}? ¿Es confiable?`
+      name: 'Búsqueda Genérica',
+      prompt: `¿Qué empresas ofrecen ${niche}?`
     },
     {
       id: 4,
       name: 'Comparación de Mercado',
-      prompt: `Compara las principales opciones del mercado relacionadas con ${brand}. ¿Cuál es la mejor?`
+      prompt: `Compara las principales empresas de ${niche}. ¿Cuál es la mejor opción?`
     },
     {
       id: 5,
-      name: 'Búsqueda por URL',
-      prompt: `¿Conoces el sitio web ${url}? ¿A qué empresa o marca pertenece?`
+      name: 'Líderes del Sector',
+      prompt: `¿Quiénes son los líderes en ${niche}? Dame nombres de empresas reconocidas.`
     }
   ];
 };
@@ -52,15 +87,22 @@ const checkBrandMention = (response, brand) => {
  * Función principal que ejecuta los 5 prompts y verifica la marca
  */
 const checkBrandInChatGPT = async (brand, url) => {
-  const prompts = generatePrompts(brand, url);
-  const results = [];
-
   console.log(`🔍 Iniciando verificación de marca: ${brand}`);
   console.log(`🌐 URL: ${url}`);
 
+  // Paso 1: Identificar el nicho de la marca
+  const niche = await identifyNiche(brand, url);
+
+  // Paso 2: Generar prompts genéricos basados en el nicho
+  const prompts = generateNichePrompts(niche, brand);
+  const results = [];
+
+  console.log(`\n🎯 Ejecutando prompts sobre el nicho: "${niche}"\n`);
+
+  // Paso 3: Ejecutar los prompts y verificar si la marca aparece
   for (const promptData of prompts) {
     try {
-      console.log(`\n📝 Ejecutando prompt ${promptData.id}: ${promptData.name}`);
+      console.log(`📝 Ejecutando prompt ${promptData.id}: ${promptData.name}`);
 
       // Llamada a OpenAI API
       const completion = await openai.chat.completions.create({
@@ -107,10 +149,16 @@ const checkBrandInChatGPT = async (brand, url) => {
   }
 
   console.log(`\n✨ Verificación completada`);
-  return results;
+
+  // Retornar resultados con información del nicho
+  return {
+    niche: niche,
+    results: results
+  };
 };
 
 module.exports = {
   checkBrandInChatGPT,
-  generatePrompts
+  identifyNiche,
+  generateNichePrompts
 };

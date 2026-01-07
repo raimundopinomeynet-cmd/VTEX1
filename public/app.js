@@ -87,6 +87,12 @@ function hideLoading() {
 function displayResults(data) {
     resultsSection.classList.remove('hidden');
 
+    // Actualizar información de nicho
+    const nicheElement = document.getElementById('nicheDetected');
+    if (nicheElement && data.niche) {
+        nicheElement.textContent = data.niche;
+    }
+
     // Actualizar resumen
     document.getElementById('totalPrompts').textContent = data.summary.totalPrompts;
     document.getElementById('mentionsFound').textContent = data.summary.mentionsFound;

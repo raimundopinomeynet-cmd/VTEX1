@@ -15,17 +15,18 @@ router.post('/check-brand', async (req, res) => {
     }
 
     // Ejecutar las verificaciones
-    const results = await checkBrandInChatGPT(brand, url);
+    const data = await checkBrandInChatGPT(brand, url);
 
     res.json({
       success: true,
       brand,
       url,
-      results,
+      niche: data.niche,
+      results: data.results,
       summary: {
-        totalPrompts: results.length,
-        mentionsFound: results.filter(r => r.brandMentioned).length,
-        mentionsNotFound: results.filter(r => !r.brandMentioned).length
+        totalPrompts: data.results.length,
+        mentionsFound: data.results.filter(r => r.brandMentioned).length,
+        mentionsNotFound: data.results.filter(r => !r.brandMentioned).length
       }
     });
 

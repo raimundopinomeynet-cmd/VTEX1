@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <h1>🔍 Brand SEO ChatGPT Checker</h1>
-            <p class="subtitle">Verifica la aparición de tu marca en respuestas de ChatGPT</p>
+            <p class="subtitle">Descubre si tu marca aparece en las recomendaciones de ChatGPT para tu nicho</p>
         </header>
 
         <div class="card">
@@ -46,8 +46,8 @@
         <!-- Loading State -->
         <div id="loadingState" class="loading-state hidden">
             <div class="spinner"></div>
-            <p>Consultando a ChatGPT... Esto puede tomar unos segundos</p>
-            <p class="loading-info">Ejecutando <span id="currentPrompt">0</span> de 5 prompts</p>
+            <p>Analizando el nicho y consultando a ChatGPT...</p>
+            <p class="loading-info">Este proceso puede tomar 15-20 segundos</p>
         </div>
 
         <!-- Results Section -->
@@ -56,6 +56,10 @@
 
             <div class="summary-card">
                 <h3>Resumen</h3>
+                <div class="niche-info">
+                    <p><strong>🎯 Nicho detectado:</strong> <span id="nicheDetected">-</span></p>
+                    <p class="niche-description">Analizamos si tu marca aparece cuando se pregunta sobre este nicho</p>
+                </div>
                 <div class="summary-stats">
                     <div class="stat">
                         <span class="stat-label">Total de Prompts</span>

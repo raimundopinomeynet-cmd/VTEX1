@@ -161,6 +161,34 @@ header h1 {
     font-size: 1.5rem;
 }
 
+.niche-info {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.niche-info p {
+    margin: 0.5rem 0;
+}
+
+.niche-info strong {
+    font-size: 1.1rem;
+}
+
+.niche-info #nicheDetected {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.niche-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
 .summary-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

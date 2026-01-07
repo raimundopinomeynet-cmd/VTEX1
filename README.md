@@ -1,13 +1,22 @@
 # 🔍 Brand SEO ChatGPT Checker
 
-Herramienta web para verificar la aparición de tu marca en respuestas de ChatGPT. Esta aplicación ejecuta 5 prompts diferentes diseñados específicamente para evaluar la visibilidad y presencia de una marca en las respuestas de la API de OpenAI.
+Herramienta web inteligente que verifica si tu marca aparece **naturalmente** en las recomendaciones de ChatGPT cuando se pregunta por tu nicho de mercado.
+
+## ¿Cómo funciona?
+
+1. **Detecta automáticamente** el nicho de tu marca analizando tu URL y nombre
+2. **Genera 5 prompts genéricos** sobre ese nicho (sin mencionar tu marca)
+3. **Verifica** si ChatGPT recomienda tu marca de forma natural
+
+Esta es la **verdadera prueba de SEO para IA**: ¿ChatGPT conoce y recomienda tu marca cuando los usuarios preguntan por servicios de tu nicho?
 
 ## 📋 Características
 
-- ✅ **5 Prompts Especializados**: Diseñados para evaluar diferentes aspectos de la presencia de marca
+- 🤖 **Detección Automática de Nicho**: Identifica automáticamente tu sector de mercado
+- ✅ **5 Prompts Genéricos**: Pregunta sobre el nicho sin mencionar tu marca
 - 🎨 **Interfaz Web Moderna**: Diseño intuitivo y responsivo
 - 📊 **Análisis Detallado**: Resultados completos con cada respuesta de ChatGPT
-- 📈 **Métricas de Visibilidad**: Porcentaje de aparición de la marca
+- 📈 **Métricas de Visibilidad Real**: Porcentaje de aparición natural de la marca
 - ⚡ **API RESTful**: Backend robusto con Express.js
 
 ## 🚀 Instalación
@@ -74,18 +83,26 @@ El servidor se ejecutará en `http://localhost:3000`
 2. Ingresa el **nombre de la marca** que quieres verificar
 3. Ingresa la **URL del sitio web** de la marca
 4. Haz clic en "Verificar Marca"
-5. Espera mientras se ejecutan los 5 prompts (toma aproximadamente 10-15 segundos)
-6. Revisa los resultados detallados
+5. La herramienta **detectará automáticamente el nicho** de tu marca
+6. Espera mientras se ejecutan los 5 prompts (toma aproximadamente 15-20 segundos)
+7. Revisa los resultados detallados
 
-## 📊 Los 5 Prompts
+## 📊 Cómo Funcionan los Prompts
 
-La herramienta ejecuta los siguientes prompts para evaluar la presencia de tu marca:
+### Paso 1: Detección de Nicho
+La herramienta analiza tu marca y URL para identificar automáticamente tu nicho de mercado (ej: "gestión de envíos", "ropa deportiva", "streaming de video").
 
-1. **Recomendación Directa**: "¿Cuáles son las mejores opciones para [MARCA]?"
-2. **Búsqueda de Alternativas**: "Necesito encontrar empresas similares a [MARCA]"
-3. **Consulta de Información**: "¿Qué puedes decirme sobre [MARCA]?"
-4. **Comparación de Mercado**: "Compara las principales opciones relacionadas con [MARCA]"
-5. **Búsqueda por URL**: "¿Conoces el sitio web [URL]?"
+### Paso 2: Prompts Genéricos
+Se generan 5 prompts **sin mencionar tu marca**, preguntando sobre el nicho:
+
+1. **Mejores Empresas del Nicho**: "¿Cuáles son las mejores empresas de [NICHO]?"
+2. **Recomendación de Servicios**: "Necesito contratar servicios de [NICHO]. ¿Qué empresas me recomiendas?"
+3. **Búsqueda Genérica**: "¿Qué empresas ofrecen [NICHO]?"
+4. **Comparación de Mercado**: "Compara las principales empresas de [NICHO]. ¿Cuál es la mejor?"
+5. **Líderes del Sector**: "¿Quiénes son los líderes en [NICHO]?"
+
+### Paso 3: Verificación
+La herramienta verifica si tu marca aparece naturalmente en las respuestas, **sin haberla mencionado** en las preguntas.
 
 ## 🏗️ Estructura del Proyecto
 
@@ -215,9 +232,10 @@ Verifica tu conexión a internet y que tu API Key de OpenAI sea válida y tenga 
 
 ## 📝 Notas Importantes
 
-- **Costos**: Cada verificación consume tokens de tu cuenta de OpenAI. Aproximadamente $0.01-0.02 por verificación completa.
+- **Costos**: Cada verificación realiza 6 llamadas a la API de OpenAI (1 para detectar nicho + 5 prompts). Costo aproximado: $0.015-0.025 por verificación completa.
 - **Rate Limits**: La herramienta incluye pausas de 500ms entre prompts para evitar problemas con límites de la API.
 - **Privacidad**: Los datos no se almacenan. Cada consulta es independiente.
+- **Detección de Nicho**: La IA analiza tu marca automáticamente. Si el nicho detectado no es correcto, considera ajustar la información en tu sitio web.
 
 ## 🤝 Contribuciones
 
