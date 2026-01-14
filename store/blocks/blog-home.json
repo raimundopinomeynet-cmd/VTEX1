@@ -1,0 +1,181 @@
+{
+  "store.blog": {
+    "blocks": [
+      "flex-layout.row#blog-header",
+      "flex-layout.row#blog-content"
+    ]
+  },
+  "flex-layout.row#blog-header": {
+    "children": [
+      "flex-layout.col#blog-header"
+    ],
+    "props": {
+      "blockClass": "blogHeader",
+      "paddingTop": 7,
+      "paddingBottom": 7
+    }
+  },
+  "flex-layout.col#blog-header": {
+    "children": [
+      "rich-text#blog-title"
+    ],
+    "props": {
+      "blockClass": "blogHeaderCol"
+    }
+  },
+  "rich-text#blog-title": {
+    "props": {
+      "text": "# Blog",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "blockClass": "blogTitle"
+    }
+  },
+  "flex-layout.row#blog-content": {
+    "children": [
+      "flex-layout.col#blog-posts"
+    ],
+    "props": {
+      "blockClass": "blogContent",
+      "paddingTop": 5,
+      "paddingBottom": 9
+    }
+  },
+  "flex-layout.col#blog-posts": {
+    "children": [
+      "flex-layout.row#blog-post-1",
+      "flex-layout.row#blog-post-2",
+      "flex-layout.row#blog-post-3"
+    ],
+    "props": {
+      "blockClass": "blogPostsList",
+      "width": "100%"
+    }
+  },
+  "flex-layout.row#blog-post-1": {
+    "children": [
+      "flex-layout.col#blog-post-item-1"
+    ],
+    "props": {
+      "blockClass": "blogPostItem",
+      "marginBottom": 5
+    }
+  },
+  "flex-layout.col#blog-post-item-1": {
+    "children": [
+      "rich-text#blog-post-title-1",
+      "rich-text#blog-post-excerpt-1",
+      "link#blog-post-link-1"
+    ],
+    "props": {
+      "blockClass": "blogPostContent",
+      "paddingTop": 4,
+      "paddingBottom": 4,
+      "paddingLeft": 4,
+      "paddingRight": 4
+    }
+  },
+  "rich-text#blog-post-title-1": {
+    "props": {
+      "text": "## Título del Artículo 1",
+      "blockClass": "blogPostTitle"
+    }
+  },
+  "rich-text#blog-post-excerpt-1": {
+    "props": {
+      "text": "Este es un extracto del primer artículo del blog. Aquí puedes agregar una breve descripción del contenido...",
+      "blockClass": "blogPostExcerpt"
+    }
+  },
+  "link#blog-post-link-1": {
+    "props": {
+      "label": "Leer más",
+      "href": "/blog/articulo-1",
+      "blockClass": "blogPostLink"
+    }
+  },
+  "flex-layout.row#blog-post-2": {
+    "children": [
+      "flex-layout.col#blog-post-item-2"
+    ],
+    "props": {
+      "blockClass": "blogPostItem",
+      "marginBottom": 5
+    }
+  },
+  "flex-layout.col#blog-post-item-2": {
+    "children": [
+      "rich-text#blog-post-title-2",
+      "rich-text#blog-post-excerpt-2",
+      "link#blog-post-link-2"
+    ],
+    "props": {
+      "blockClass": "blogPostContent",
+      "paddingTop": 4,
+      "paddingBottom": 4,
+      "paddingLeft": 4,
+      "paddingRight": 4
+    }
+  },
+  "rich-text#blog-post-title-2": {
+    "props": {
+      "text": "## Título del Artículo 2",
+      "blockClass": "blogPostTitle"
+    }
+  },
+  "rich-text#blog-post-excerpt-2": {
+    "props": {
+      "text": "Este es un extracto del segundo artículo del blog. Aquí puedes agregar una breve descripción del contenido...",
+      "blockClass": "blogPostExcerpt"
+    }
+  },
+  "link#blog-post-link-2": {
+    "props": {
+      "label": "Leer más",
+      "href": "/blog/articulo-2",
+      "blockClass": "blogPostLink"
+    }
+  },
+  "flex-layout.row#blog-post-3": {
+    "children": [
+      "flex-layout.col#blog-post-item-3"
+    ],
+    "props": {
+      "blockClass": "blogPostItem",
+      "marginBottom": 5
+    }
+  },
+  "flex-layout.col#blog-post-item-3": {
+    "children": [
+      "rich-text#blog-post-title-3",
+      "rich-text#blog-post-excerpt-3",
+      "link#blog-post-link-3"
+    ],
+    "props": {
+      "blockClass": "blogPostContent",
+      "paddingTop": 4,
+      "paddingBottom": 4,
+      "paddingLeft": 4,
+      "paddingRight": 4
+    }
+  },
+  "rich-text#blog-post-title-3": {
+    "props": {
+      "text": "## Título del Artículo 3",
+      "blockClass": "blogPostTitle"
+    }
+  },
+  "rich-text#blog-post-excerpt-3": {
+    "props": {
+      "text": "Este es un extracto del tercer artículo del blog. Aquí puedes agregar una breve descripción del contenido...",
+      "blockClass": "blogPostExcerpt"
+    }
+  },
+  "link#blog-post-link-3": {
+    "props": {
+      "label": "Leer más",
+      "href": "/blog/articulo-3",
+      "blockClass": "blogPostLink"
+    }
+  }
+}

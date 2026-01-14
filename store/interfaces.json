@@ -1,0 +1,10 @@
+{
+  "store.blog": {
+    "component": "store.blog",
+    "allowed": "*"
+  },
+  "store.blog-post": {
+    "component": "store.blog-post",
+    "allowed": "*"
+  }
+}

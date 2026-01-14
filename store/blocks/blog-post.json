@@ -1,0 +1,84 @@
+{
+  "store.blog-post": {
+    "blocks": [
+      "flex-layout.row#blog-post-header",
+      "flex-layout.row#blog-post-content",
+      "flex-layout.row#blog-post-back"
+    ]
+  },
+  "flex-layout.row#blog-post-header": {
+    "children": [
+      "flex-layout.col#blog-post-header"
+    ],
+    "props": {
+      "blockClass": "blogPostHeader",
+      "paddingTop": 7,
+      "paddingBottom": 5
+    }
+  },
+  "flex-layout.col#blog-post-header": {
+    "children": [
+      "rich-text#blog-post-title"
+    ],
+    "props": {
+      "blockClass": "blogPostHeaderCol"
+    }
+  },
+  "rich-text#blog-post-title": {
+    "props": {
+      "text": "# Título del Artículo",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "blockClass": "blogPostMainTitle"
+    }
+  },
+  "flex-layout.row#blog-post-content": {
+    "children": [
+      "flex-layout.col#blog-post-body"
+    ],
+    "props": {
+      "blockClass": "blogPostContentRow",
+      "paddingTop": 5,
+      "paddingBottom": 7
+    }
+  },
+  "flex-layout.col#blog-post-body": {
+    "children": [
+      "rich-text#blog-post-body"
+    ],
+    "props": {
+      "blockClass": "blogPostBodyCol",
+      "width": "100%"
+    }
+  },
+  "rich-text#blog-post-body": {
+    "props": {
+      "text": "## Sección del Artículo\n\nAquí va el contenido del artículo del blog. Puedes agregar párrafos, imágenes, listas y otros elementos de contenido.\n\n### Subsección\n\nMás contenido del artículo. Este es un ejemplo de cómo estructurar el contenido de tu artículo de blog.\n\n- Punto 1\n- Punto 2\n- Punto 3\n\nPuedes continuar agregando más contenido según sea necesario.",
+      "blockClass": "blogPostBody"
+    }
+  },
+  "flex-layout.row#blog-post-back": {
+    "children": [
+      "flex-layout.col#blog-post-back"
+    ],
+    "props": {
+      "blockClass": "blogPostBackRow",
+      "paddingBottom": 7
+    }
+  },
+  "flex-layout.col#blog-post-back": {
+    "children": [
+      "link#blog-back"
+    ],
+    "props": {
+      "blockClass": "blogPostBackCol"
+    }
+  },
+  "link#blog-back": {
+    "props": {
+      "label": "← Volver al Blog",
+      "href": "/blog",
+      "blockClass": "blogBackLink"
+    }
+  }
+}

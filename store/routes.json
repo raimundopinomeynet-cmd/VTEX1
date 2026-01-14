@@ -1,0 +1,8 @@
+{
+  "store.blog": {
+    "path": "/blog"
+  },
+  "store.blog-post": {
+    "path": "/blog/:slug"
+  }
+}
