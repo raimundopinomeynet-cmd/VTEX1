@@ -1,3 +1,23 @@
+/* Import Dimaco Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Bebas+Neue&display=swap');
+
+/*
+  Dimaco Color Palette:
+  - Verde principal: #007934
+  - Verde oscuro (hover): #077920
+  - Naranja: #ee8411
+  - Rosa/Magenta: #f71963
+  - Gris texto: #979899
+  - Gris oscuro: #0c2c44
+  - Gris claro: #f5f5f5
+  - Gris borde: #e3e4e6
+*/
+
+/* Global Blog Styles */
+* {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
 /* Blog Home Styles */
 .blogHeader {
   background-color: #f5f5f5;
@@ -5,10 +25,12 @@
 }
 
 .blogTitle {
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
   font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
+  font-weight: 400;
+  color: #0c2c44;
   margin: 0;
+  letter-spacing: 1px;
 }
 
 .blogContent {
@@ -24,14 +46,15 @@
 }
 
 .blogPostItem {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #e3e4e6;
   border-radius: 8px;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
 .blogPostItem:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 121, 52, 0.15);
+  border-color: #007934;
 }
 
 .blogPostContent {
@@ -39,30 +62,33 @@
 }
 
 .blogPostTitle {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.75rem;
   font-weight: 600;
-  color: #222;
+  color: #0c2c44;
   margin-bottom: 10px;
 }
 
 .blogPostExcerpt {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
   font-size: 1rem;
-  color: #666;
+  color: #979899;
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
 .blogPostLink {
   display: inline-block;
-  color: #0066cc;
+  color: #007934;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
 }
 
 .blogPostLink:hover {
-  color: #0052a3;
-  text-decoration: underline;
+  color: #077920;
+  border-bottom-color: #007934;
 }
 
 /* Blog Post Styles */
@@ -72,10 +98,12 @@
 }
 
 .blogPostMainTitle {
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
   font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
+  font-weight: 400;
+  color: #0c2c44;
   margin: 0;
+  letter-spacing: 1px;
 }
 
 .blogPostContentRow {
@@ -85,25 +113,28 @@
 }
 
 .blogPostBody {
-  font-size: 1.125rem;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-size: 1rem;
   line-height: 1.8;
-  color: #333;
+  color: #0c2c44;
 }
 
 .blogPostBody h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   margin-top: 30px;
   margin-bottom: 15px;
-  color: #222;
+  color: #0c2c44;
 }
 
 .blogPostBody h3 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 25px;
   margin-bottom: 12px;
-  color: #333;
+  color: #0c2c44;
 }
 
 .blogPostBody p {
@@ -128,15 +159,16 @@
 
 .blogBackLink {
   display: inline-block;
-  color: #0066cc;
+  color: #007934;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
 }
 
 .blogBackLink:hover {
-  color: #0052a3;
-  text-decoration: underline;
+  color: #077920;
+  border-bottom-color: #007934;
 }
 
 /* Responsive Styles */
